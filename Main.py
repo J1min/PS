@@ -1,8 +1,9 @@
-n = input()
-f = int(input())
-a = int(n[:-2] + '00')
-while True:
-    if a % f == 0:
-        break
-    a += 1
-print(str(a)[-2:])
+arr = list()
+n = int(input())
+
+q = input().split()
+arr.append(q)
+# for _ in range(n):
+#     arr[_] = (arr[_]/q) * 100
+
+print(arr)
