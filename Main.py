@@ -1,9 +1,21 @@
-arr = list()
-n = int(input())
+nameArr = list()
+scoreArr = list()
 
-q = input().split()
-arr.append(q)
-# for _ in range(n):
-#     arr[_] = (arr[_]/q) * 100
+n, m = input().split()
+n = int(n)
+m = int(m)
 
-print(arr)
+for i in range(n):
+    name, score = input().split()
+    score = int(score)
+    nameArr.append(name)
+    scoreArr.append(score)
+
+# print(nameArr, scoreArr)
+diction = dict(zip(nameArr, scoreArr))
+# diction = sorted(diction.items())
+
+for i in diction.keys():
+    if i < m:
+        print(i)
+        i += 1
