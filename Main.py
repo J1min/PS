@@ -1,21 +1,13 @@
-nameArr = list()
-scoreArr = list()
-
-n, m = input().split()
-n = int(n)
-m = int(m)
-
+n = int(input())
+ok = 0
 for i in range(n):
-    name, score = input().split()
-    score = int(score)
-    nameArr.append(name)
-    scoreArr.append(score)
-
-# print(nameArr, scoreArr)
-diction = dict(zip(nameArr, scoreArr))
-# diction = sorted(diction.items())
-
-for i in diction.keys():
-    if i < m:
-        print(i)
-        i += 1
+    arr = list(map(int, input().split()))
+    cnt = arr[0]
+    arr.pop(0)
+    avg = sum(arr, 0) / len(arr)
+    for i in arr:
+        if(i > avg):
+            ok += 1
+    print("{:.3f}%".format((ok/(len(arr)))*100))
+    ok = 0
+    arr = []
