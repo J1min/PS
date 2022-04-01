@@ -1,13 +1,16 @@
-n = int(input())
-ok = 0
-for i in range(n):
-    arr = list(map(int, input().split()))
-    cnt = arr[0]
-    arr.pop(0)
-    avg = sum(arr, 0) / len(arr)
-    for i in arr:
-        if(i > avg):
-            ok += 1
-    print("{:.3f}%".format((ok/(len(arr)))*100))
-    ok = 0
-    arr = []
+result = []
+
+def number1(num):
+    if num <= 10000:
+        for i in range(len(str(num))):
+            result.append(str(num[i: i + 1]))
+        num = sum(result) + int(num)
+        print(num)
+        number(num)
+        result = []
+    else:
+        return
+
+n = 1
+
+number1(n)
