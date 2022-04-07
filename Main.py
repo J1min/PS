@@ -1,16 +1,11 @@
-result = []
+num = int(input())
 
-def number1(num):
-    if num <= 10000:
-        for i in range(len(str(num))):
-            result.append(str(num[i: i + 1]))
-        num = sum(result) + int(num)
-        print(num)
-        number(num)
-        result = []
-    else:
-        return
+arr = list(map(int, input().split()))
+newarr = []
+M = max(arr)
 
-n = 1
 
-number1(n)
+for i in arr:
+    q = i/M*100
+    newarr.append(q)
+avg = sum(arr) / len(arr)
