@@ -1,14 +1,24 @@
-n = int(input())
-usedCount = 0
-usedList = []
-for i in range(n):
-    arr = list(input())
-    print(arr)
-    for j in arr: 
-        if j not in usedList:
-            print(j)
-            usedList.append(j)
-            usedCount += 1
-    usedList = []
+def solution(s):
+    answer = ''
+    arr = []
+    success = []
+    wordCnt = 0
+    arr.append(s)
+    # print(arr[0])
 
-print(usedCount)
+    for i in arr:
+        for j in i:
+            wordCnt += 1
+            if(wordCnt % 2 == 0):
+                # print(j.lower(), end="")
+                success.append(j.lower())
+            else:
+                # print(j.upper(), end="")
+                success.append(j.upper())
+        answer = "".join(success)
+        print(answer)
+        # print(success)
+        return answer
+
+
+solution("brother mother father family love school friend angular try hello world")
