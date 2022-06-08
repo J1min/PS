@@ -1,6 +1,8 @@
+from itertools import combinations
+
 n = int(input())
-arr = list(map(int,input().split()))
-arr2 = []
-arr2 = sorted(arr)
-for i in range(len(arr)):
-  
+
+for i in combinations(arr, m):
+  k += 1
+
+print(k)
