@@ -3,6 +3,7 @@ dual 테이블은 oracle에서 기본적으로 제공하는 빈 테이블이다.
 간단하게 테스트를 할 때 
 >> select abs(-15) from dual;
 이런 식으로 사용한다.
+
 */
 
 abs(a)
