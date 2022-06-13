@@ -4,7 +4,7 @@ def binary(num):
     while True:
         a = int(num / 2)
         b = int(num % 2)
-        save.insert(0, b)
+        save.insert(0,a b)
         
         if a != 0:
             num = a
