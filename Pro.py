@@ -1,2 +1,3 @@
-n = 1233456
-print(list(map(int,str(n))))
+import sys
+input = sys.stdin.readline
+n = int(input())
