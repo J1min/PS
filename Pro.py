@@ -1,3 +1,2 @@
-import sys
-input = sys.stdin.readline
-n = int(input())
+print(18%6)
+print(12//6 + 1)
