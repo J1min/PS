@@ -32,7 +32,7 @@ for i in range(1, n):  # 1 ~ 5
 if n > 2:
     print(f'{l1[n-1]}/{l2[n-1]}')
 
-# # start 구현
+# start 구현  
 # for i in range(1, 6):  # 1 ~ 5
 #     start = 0
 #     if i % 2 == 0:  # 짝수일 경우
