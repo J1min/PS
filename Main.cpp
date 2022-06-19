@@ -1,51 +1,37 @@
 #include <iostream>
 using namespace std;
-
-bool relation[10][10];
 int n;
 int m;
-
-int CountParing(bool taken[])
+int price[20];
+int preference[20];
+// ver3. repetitive dp + sliding window
+// 초밥 가격 100의 배수 -> 가격을 100으로 나누기
+// 모든 초밥의 가격은 2만원 이하 -> 가격을 100으로 나누었으므로 200원 이하
+// -> budget-200 ~ budget 까지 계산된 값을 저장할 공간이 필요함 -> 201개의 메모리 필요
+int sw[201];
+int FindMaxPref_sliding_window()
 {
-	bool check = true;  // 모든 학생들이 짝을 지었는지 확인
-	int first = -1;     // 짝이 없는 학생들 중 가장 낮은 번호
-	for(int i = 0 ; i < n ; i++)
-		if(!taken[i]){    // 짝이 없는 학생이 있으면
-			check = false;
-			first = i;
-			break;
-		}
-	if(check) return 1;  // 모든 학생들이 짝을 이루었으면 짝을 짓는 방법의 수 1가지
-	
-	int count = 0;       // 현재 짝이 없는 학생들로 짝을 지을 수 있는 경우의 수
-	for(int j = first+1 ; j < n ; j++) // first 번호의 학생과 짝을 이룰 수 있는 학생의 번호는 first보다 큰 번호
+	m = m / 100; // 총 예산 100으로 나누기
+	sw[0] = 0;
+	for(int budget=1 ; budget <= m ; budget++)
 	{
-		if(!taken[j] && relation[first][j]) // j번 학생이 짝이 없고, first번 학생과 친구 관계이면
+		sw[budget%201] = 0;
+		for(int i = 0 ; i < n ; i++)
 		{
-			taken[first] = true;
-			taken[j] = true;
-			count += CountParing(taken);
-			taken[first] = false;
-			taken[j] = false;
+			int targetPrice = price[i]/100; // 스시 가격 100으로 나누기
+			int targetPref = preference[i];
+			if(budget < targetPrice) continue;
+			sw[budget%201] = max(sw[budget%201], sw[(budget-targetPrice)%201]+targetPref);
 		}
 	}
-	return count;
+	return sw[m%201];
 }
 
-int main() {
+int main(void)
+{
 	cin >> n >> m;
 	for(int i = 0 ; i < m ; i++)
-	{
-		int s1, s2;
-		cin >> s1 >> s2;
-		relation[s1][s2] = true;
-		relation[s2][s1] = true;
-	}
-	bool taken[10];
-	for(int i = 0 ;i  < 10 ; i++)
-		taken[i] = false;
-	
-	cout << CountParing(taken) << endl;
-	
+		cin >> price[i] >> preference[i];
+	cout << FindMaxPref_sliding_window() << endl;
 	return 0;
 }

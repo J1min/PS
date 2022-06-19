@@ -1,26 +1,11 @@
-def Color(x, y, n):
-    global white, blue
-    check = Mat[x][y]
-    for i in range(x, x+n):
-        for j in range(y, y+n):
-            if check != Mat[i][j]:  # 나머지 사각형의 색깔과 일치하지 않는다면 실행합니다.
-                Color(x, y, n//2)  # 1사분면
-                Color(x, y+n//2, n//2)  # 2사분면
-                Color(x+n//2, y, n//2)  # 3사분면
-                Color(x+n//2, y+n//2, n//2)  # 4사분면
-                return
-    if check == 0:
-        white += 1
-        return
-    else:
-        blue += 1
-        return
-
-N = int(input())
-Mat = [list(map(int, input().split())) for _ in range(N)]
-
-white, blue = 0, 0
-
-Color(0, 0, N)
-print(white)
-print(blue)
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+dp = [0 for i in range(n)]
+for i in range(n):
+    for j in range(i):
+        if a[i] > a[j] and dp[i] < dp[j]:
+            dp[i] = dp[j]
+    dp[i] += 1
+print(n - max(dp))
