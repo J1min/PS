@@ -1,19 +1,18 @@
 #include <iostream>
-#include <string.h>
-#include <stdlib.h>
 using namespace std;
 
-char *MakeStrAdr(int len)
+#define ID_LEN 20
+
+struct Car
 {
-	char* str = new char[len];
-	return str;
-}
+	char gamerID[ID_LEN];
+	int fuelGauge;
+	int curSpeed;
+};
 
 int main(void)
 {
-	char *str = MakeStrAdr(20);
-	strcpy(str, "I am so happy~");
-	cout << str << endl;
-	delete str;
+	struct Car car1;
+	Car car2;
 	return 0;
 }

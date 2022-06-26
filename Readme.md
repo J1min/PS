@@ -3,7 +3,7 @@
 매주 5문제를 목표로 하고 있습니다.
 <br>
 
-  [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=j1min)](https://solved.ac/j1min/)
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=j1min)](https://solved.ac/j1min/)
 
 <ul>
   <li>  
