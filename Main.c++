@@ -5,33 +5,29 @@ class SimpleClass
 {
 private:
 	int num;
-
 public:
-	SimpleClass(int num) : num(num) {}
-	SimpleClass(const SimpleClass &sc) : num(sc.num)
+	SimpleClass(int n): num(n) {}
+	SimpleClass& Adder(int n)
 	{
-		cout << "Called Copy Constructor" << endl;
+		num += n;
+		return *this;
 	}
-	void ShowSimpleData() const { cout << num << endl; }
+	SimpleClass& ShowSimpleData()
+	{ 
+		cout << num << endl;
+		return *this;
+	}
 };
-
-SimpleClass SimpleFunc1(SimpleClass sc)
-{
-	cout << "SimpleFunc1" << endl;
-	return sc;
-}
-
-SimpleClass &SimpleFunc2(SimpleClass &sc)
-{
-	cout << "SimpleFunc2" << endl;
-	return sc;
-}
 
 int main(void)
 {
 	SimpleClass sc1(100);
-	SimpleFunc1(sc1);
-	cout << "main called SimpleFunc2" << endl;
-	SimpleFunc2(sc1);
+	SimpleClass sc2 = sc1.Adder(100);
+	SimpleClass& sc3 = sc1.Adder(100);
+	
+	sc1.ShowSimpleData();
+	sc2.ShowSimpleData();
+	sc3.ShowSimpleData();
+	
 	return 0;
 }
