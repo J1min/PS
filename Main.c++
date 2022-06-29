@@ -1,33 +1,18 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-
-class SimpleClass
+namespace A
 {
-private:
-	int num;
-public:
-	SimpleClass(int n): num(n) {}
-	SimpleClass& Adder(int n)
+	namespace B
 	{
-		num += n;
-		return *this;
+		namespace C
+		{
+			bool a = false;
+		}
 	}
-	SimpleClass& ShowSimpleData()
-	{ 
-		cout << num << endl;
-		return *this;
-	}
-};
-
-int main(void)
+}
+int main()
 {
-	SimpleClass sc1(100);
-	SimpleClass sc2 = sc1.Adder(100);
-	SimpleClass& sc3 = sc1.Adder(100);
-	
-	sc1.ShowSimpleData();
-	sc2.ShowSimpleData();
-	sc3.ShowSimpleData();
-	
-	return 0;
+	cout << A::B::C::a << endl;
+	namespace ABC = A::B::C;
+	cout << ABC::a;
 }
