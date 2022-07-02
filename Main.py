@@ -1,2 +1,1 @@
-number = 11
-print(sum(map(int,str(number))))
+print(sum(map(int, str(112334))))
