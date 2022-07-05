@@ -1,5 +1,4 @@
-n = int(input())
-arr = list(map(int, input().split()))
-arr = sorted(arr)
-for i in arr:
-  print(i, end=" ")
+a = 7
+b = 5
+print(*divmod(a, b))
+
