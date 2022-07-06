@@ -1,4 +1,7 @@
-a = 7
-b = 5
-print(*divmod(a, b))
+그룹단어체커
 
+N = int(input())
+for i in range(N):
+    words = list(input())
+for i in words:
+    pass
