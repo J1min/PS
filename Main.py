@@ -1,3 +1,5 @@
-for i in range(5, 1, -1):
-  for j in range(1, 5):
-    print(i)
+# 단어 뒤집기
+arr = list(map(str, input()))
+result = []
+for i in arr:
+  print(i, end="")
