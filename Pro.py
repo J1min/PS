@@ -8,5 +8,4 @@ dictionary = {"A+": 4.5,
               "D0": 1.0,
               "F": 0.0}
 
-
 print(type(dictionary["A+"]))
