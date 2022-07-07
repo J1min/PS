@@ -8,16 +8,21 @@
 #   result[i] = sorted_arr.index(arr[i])
 # print(*result)
 
-def is_sosu(n):
-    for i in range(2, n):
-        if n % i == 0:
-            return False
-    return True
-
+def sosu(n):
+    prime = [True] * n
+    for i in range(2, int(n**0.5)):
+        if prime[i] == True:
+            for j in range(i+i, n, i):
+                prime[j] = False
+    return [i for i in range(2, n) if prime[i] == True]
 
 N = int(input())
-while not is_sosu(N):
-    for i in range(2, N):
+sosulist = sosu(N)
+
+while True:
+    if N in sosulist:
+        break
+    for i in sosulist:
         if N % i == 0:
             N //= i
             print(i)
