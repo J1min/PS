@@ -1,4 +1,4 @@
-# 14659 한조서열정리
+# 한조서열정리 (그리디)
 N = int(input()) 
 arr = list(map(int, input().split()))
 
