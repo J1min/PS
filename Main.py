@@ -1,30 +1,10 @@
-def sosu(n):
-    prime = [True] * n
-    for i in range(2, int(n**0.5)):
-        if prime[i] == True:
-            for j in range(i+i, n, i):
-                prime[j] = False
-    return [i for i in range(2, n) if prime[i] == True]
+def solution(mylist):
+    answer = []
+    for number1, number2 in zip(mylist, mylist[1:]):
+        answer.append(abs(number1 - number2))
+    return answer
 
 
-def is_sosu(n):
-    for i in range(2, n):
-        if n % i == 0:
-            return False
-    return True
-
-
-N = int(input())
-sosulist = sosu(int(N**0.5))
-
-if is_sosu(N) == True:
-    print(N)
-
-else:
-    while N != 1:
-        for i in range(2, N):
-            if N % i == 0:
-                N //= i
-                print(i)
-                break
-print(N)
+if __name__ == '__main__':
+    mylist = [83, 48, 13, 4, 71, 11]
+    print(solution(mylist))
