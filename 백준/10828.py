@@ -19,6 +19,6 @@ for i in range(N):
             print(0)
     elif q[0] == 'top':
         if len(stack) != 0:
-            print(stack[0])
+            print(stack[-1])
         else:
             print(-1)

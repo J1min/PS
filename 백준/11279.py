@@ -10,4 +10,4 @@ for i in range(N):
     elif q == 0:
         print(heapq.heappop(heap)[1])
     else:
-        heapq.heappush(heap, (abs(q), q))
+        heapq.heappush(heap, (-q, q))
