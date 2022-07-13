@@ -1,5 +1,4 @@
 # 기타줄 문제 (그리디 알고리즘)
-
 N, M = map(int, input().split())
 arr = []
 oneList = []  # 줄 1개 살때의 돈
