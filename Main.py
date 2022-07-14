@@ -1,12 +1,11 @@
 N = int(input())
-
-for i in range(N-1):
-
-    print(" "*i, end="")
-    print("*"+"**"*(N-i-1))
-
-
+_ = input()
 for i in range(N):
-
-    print(" "*(N-i-1), end="")
-    print("*"+"**"*i)
+    sum_ = 0
+    M = int(input())
+    for j in range(M):
+        sum_ += int(input())
+    if sum_ // N == M :
+        print("YES")
+    else:
+        print("NO")
