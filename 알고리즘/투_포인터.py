@@ -1,18 +1,12 @@
-N = int(input())
-numbers = list(map(int, input().split()))
-target = int(input())
+n, m = map(int, input().split())
+sum_, end, count = 0, 0, 0
 
-now = 0
-
-start = 0
-end = 1
-
-while now != target:
-    now = sum(numbers[start:end])
-    if target < now:
-        start += 1
-    elif target > now:
+for start in range(n):
+    while sum_ < m and end < n:
+        sum_ += data[end]
         end += 1
-    print(now)
-    print(numbers[start: end])
-    
+    if sum_ == m:
+        count += 1
+    sum_ -= data[start]
+print(count)
+
