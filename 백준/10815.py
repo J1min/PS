@@ -1,15 +1,15 @@
-import bisect
-_ = int(input())
-myCard = list(map(int, input().split()))
-myCard = sorted(myCard)
-lenRange = int(input())
-isMyCard = list(map(int, input().split()))
-answer = [0] * len(isMyCard)
+dict_ = {}
+N = int(input())
+arr = list(map(int, input().split()))
+M = int(input())
+exist = list(map(int, input().split()))
 
-for i in range(lenRange): 
-    if myCard[bisect.bisect(myCard, isMyCard[i])] == myCard[i]:
-        print(myCard[bisect.bisect(myCard, isMyCard[i])], myCard[i])
-        answer[i] = 0
-    else:
-        answer[i] = 1
-print(*answer)
+for i in exist:
+    dict_[i] = 0
+for i in arr:
+    dict_[i] = 0
+for i in arr:
+    dict_[i] = 1
+
+for i in exist:
+    print(dict_[i], end=' ')

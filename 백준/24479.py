@@ -14,7 +14,7 @@ N, M, R = map(int, input().split())
 graph = []
 visited = [0 for i in range(N)]
 
-for _ in range(N):
+for _ in range(M):
     graph.append(list(map(int, input().split())))
 
 dfs(graph, R, visited)
