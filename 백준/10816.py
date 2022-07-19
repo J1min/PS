@@ -9,7 +9,7 @@ for i in exist:
 for i in arr:
     dict_[i] = 0
 for i in arr:
-    dict_[i] = 1
+    dict_[i] += 1 
 
 for i in exist:
-    print(dict_[i])
+    print(dict_[i], end=' ')
