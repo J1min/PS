@@ -1,25 +1,30 @@
-X = int(input())
-count = 0
-if X % 64 != X:
-    X %= 64
-    count += 1
-if X % 32 != X:
-    X %= 32
-    count += 1
-if X % 16 != X:
-    X %= 16
-    count += 1
-if X % 8 != X:
-    X %= 8
-    count += 1
-if X % 4 != X:
-    X %= 4
-    count += 1
-if X % 2 != X:
-    X %= 2
-    count += 1
+from collections import deque
 
-if X % 2 == 1:
-    print(count + 1)
-else:
-    print(count)
+N = int(input())  # 노드의 개수
+
+visited = [False] * (N+1)
+
+graph = [[],
+         [2, 3, 8],
+         [1, 7],
+         [1, 4, 5],
+         [3, 5],
+         [3, 4],
+         [7],
+         [2, 6, 8],
+         [1, 7]]
+
+
+def bfs(start):
+    queue = deque([start])
+    visited[start] = True
+    while queue:
+        v = queue.popleft()
+        print(v, end=" ")
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+
+
+bfs(1)

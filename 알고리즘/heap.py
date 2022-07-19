@@ -4,6 +4,8 @@ import heapq
 
 heap = []
 
+# 최소신장트리 
+
 heapq.heappush(heap, 1)
 heapq.heappush(heap, 2)
 heapq.heappush(heap, 3)
@@ -15,6 +17,8 @@ print(heapq.heappop(heap))
 print(heapq.heappop(heap))
 print(heapq.heappop(heap))
 print(heapq.heappop(heap))
+
+# 최대신장트리 
 
 heapq.heappush(heap, (-1, 1))
 heapq.heappush(heap, (-2, 2))
