@@ -1,30 +1,22 @@
-from collections import deque
+N, M = map(int, input().split())
 
-N = int(input())  # 노드의 개수
+graph = [list(map(str, input())) for i in range(M)]
+count = 0
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
 
-visited = [False] * (N+1)
-
-graph = [[],
-         [2, 3, 8],
-         [1, 7],
-         [1, 4, 5],
-         [3, 5],
-         [3, 4],
-         [7],
-         [2, 6, 8],
-         [1, 7]]
-
-
-def bfs(start):
-    queue = deque([start])
-    visited[start] = True
-    while queue:
-        v = queue.popleft()
-        print(v, end=" ")
-        for i in graph[v]:
-            if not visited[i]:
-                queue.append(i)
-                visited[i] = True
+def dfs(x, y, color):
+    global count   
+    graph[x][y] = 'v'
+    for i in range(4):
+        nx, ny = x + dx[i], y + dy[i]
+        if 0 <= nx < M and 0 <= ny < N:
+            if graph[nx][ny] != 'v' and graph[nx][ny] == color:
+                count = dfs(nx, ny, color)
+    return count
 
 
-bfs(1)
+for i in range(N):
+    for j in range(M):
+        dfs(i, j, "W")
+print(count)
