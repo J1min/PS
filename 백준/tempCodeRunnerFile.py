@@ -1,2 +1,2 @@
 
-    if rc < 2:
+    n = list(n)
