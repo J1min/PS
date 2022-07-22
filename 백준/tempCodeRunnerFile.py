@@ -1,29 +1,6 @@
-import collections
-queue = collections.deque([])
-N = int(input())
-for i in range(N):
-    order = input().split()
-    if order[0] == "push":
-        queue.append(int(order[1]))
-    elif order[0] == "front":
-        if len(queue) == 0:
-            print(-1)
-        else:
-            print(queue[0])
-    elif order[0] == "back":
-        if len(queue) == 0:
-            print(-1)
-        else:
-            print(queue[-1])
-    elif order[0] == "pop":
-        if len(queue) == 0:
-            print(-1)
-        else:
-            print(queue.popleft())
-    elif order[0] == "empty":
-        if len(queue) == 0:
-            print(1)
-        else:
-            print(0)
-    elif order[0] == "size":
-        print(len(queue))
+import math
+N1, N2 = map(int, input().split())
+M1, M2 = map(int, input().split())
+분모 = math.lcm(N2, M2)
+
+print(분모//N2 * N1 + 분모//M2 * M1, 분모)
