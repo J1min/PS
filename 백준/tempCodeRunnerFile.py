@@ -1,39 +1,29 @@
-import sys
-sys.setrecursionlimit(10**9)
+import collections
+queue = collections.deque([])
 N = int(input())
-graph = []
-visited = [[False] * N for _ in range(N)]
-dx = [1, 0, -1, 0]
-dy = [0, 1, 0, -1]
-
-count = 0
-
-for _ in range(N):
-    graph.append(list(map(int, input())))
-
-
-def dfs(x, y):
-    global count
-    if x < 0 or x >= N or y < 0 or y >= N:
-        return False
-    if graph[x][y] == 1:
-        count += 1
-        graph[x][y] = 0
-        for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            dfs(nx, ny)
-        return True
-    return False
-
-
-numbers = []
-
 for i in range(N):
-    for j in range(N):
-        if dfs(i, j) == True:
-            numbers.append(count)
-            count = 0
-print(len(numbers))
-for i in numbers:
-    print(i)
+    order = input().split()
+    if order[0] == "push":
+        queue.append(int(order[1]))
+    elif order[0] == "front":
+        if len(queue) == 0:
+            print(-1)
+        else:
+            print(queue[0])
+    elif order[0] == "back":
+        if len(queue) == 0:
+            print(-1)
+        else:
+            print(queue[-1])
+    elif order[0] == "pop":
+        if len(queue) == 0:
+            print(-1)
+        else:
+            print(queue.popleft())
+    elif order[0] == "empty":
+        if len(queue) == 0:
+            print(1)
+        else:
+            print(0)
+    elif order[0] == "size":
+        print(len(queue))
