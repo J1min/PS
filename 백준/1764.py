@@ -9,5 +9,6 @@ hear = set(hear)
 see = set(see)
 answer = list(hear & see)
 answer.sort()
+print(len(answer))
 for i in answer:
     print(i)
