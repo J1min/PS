@@ -1,2 +1,2 @@
-N, M = map(int, input().split())
-print(abs(N-M))
+N = int(input())
+print(N-1946)
