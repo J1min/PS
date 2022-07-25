@@ -1,2 +1,2 @@
 
-    n = list(n)
+print(count)
