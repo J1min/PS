@@ -9,4 +9,7 @@ if not Make.is_file():
     print(f"백준/{N}.py")
     f.close()
 else:
-    print("파일이 이미 존재합니다 ㅅㄱㅂㅇ")
+    print("파일이 이미 존재합니다 ㅅㄱㅂㅇ\n")
+    print(f"백준/{N}.py")
+    print(f"백준/{N}.py")
+    print(f"백준/{N}.py")

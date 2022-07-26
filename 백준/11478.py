@@ -1,4 +1,4 @@
-S = str(input())
+S = input()
 ans = []
 for i in range(len(S)):
     for j in range(len(S)-i):
