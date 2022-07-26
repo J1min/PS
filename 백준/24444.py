@@ -1,24 +1,33 @@
 import collections
+
 N, M, K = map(int, input().split())
 graph = [[] for _ in range(N+1)]
 visited = [0] * (N+1)
-for i in range(N):
-    a, b = map(int, input().split())
-    graph[a].append(b)
-    graph[b].append(a)
+count = 1
+
+for i in range(M):
+    A, B = map(int, input().split())
+    graph[A].append(B)
+    graph[B].append(A)
+
+for i in range(N+1):
+    graph[i].sort(reverse=True)
+
 
 def bfs(start):
+    global count
     queue = collections.deque([start])
-    count = 1
-    visited[start] = count
+    visited[start] = 1
     while queue:
         now = queue.popleft()
         for i in graph[now]:
-            if not visited[i]:
+            if visited[i] == 0:
                 count += 1
                 visited[i] = count
                 queue.append(i)
 
+
 bfs(K)
-for i in range(len(visited)-1):
-    print(visited[i+1])
+
+for i in range(1, N+1):
+    print(visited[i])
