@@ -1,12 +1,12 @@
 n, m = map(int, input().split())
-sum_, end, count = 0, 0, 0
+summary, end, count = 0, 0, 0
 
 for start in range(n):
-    while sum_ < m and end < n:
-        sum_ += data[end]
+    while summary < m and end < n:
+        summary += data[end]
         end += 1
-    if sum_ == m:
+    if summary == m:
         count += 1
-    sum_ -= data[start]
+    summary -= data[start]
 print(count)
 
