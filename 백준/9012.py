@@ -1,16 +1,15 @@
 N = int(input())
 for i in range(N):
-    sum_ = 0
-    brackets = list(input())
+    summary = 0
+    flag = 0
+    brackets = input()
     for j in brackets:
         if j == "(":
-            sum_ += 1
+            summary += 1
         elif j == ")":
-            sum_ -= 1
-        if sum_ < 0:
-            print("NO")
+            summary -= 1
+        if summary < 0 :
             break
-    if sum_ == 0:
-        print("YES")
-    elif sum_ > 0:
-        print("NO")
+    if summary == 0:
+        flag = 1
+    print(["NO", "YES"][flag])
