@@ -31,3 +31,4 @@ while True:
 
 
 print(len(room))
+print(room)
