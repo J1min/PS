@@ -7,4 +7,4 @@ request = list(map(int, input().split()))
 for i in request:
     if i not in numbers:
         bisect.insort(numbers, i)
-print(numbers)
+print(numbers) 
