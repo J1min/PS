@@ -1,6 +1,5 @@
 from pathlib import Path
 from datetime import datetime
-datetime.today()
 Number = input()
 Make = Path(f"BOJ/{Number}.py")
 
@@ -12,7 +11,6 @@ if not Make.is_file():
     f.write(f"# NUMBER - {Number}\n")
     f.write(f"# DATE - {str(datetime.today())[:16]}\n")
     f.write(f"# IDEA - \n")
-    f.write(f"#\n")
     f.write(f"#\n")
     
     print(f"\n{Number}.py 만들엇서요\n")
