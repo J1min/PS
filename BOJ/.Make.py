@@ -6,6 +6,7 @@ Make = Path(f"BOJ/{Number}.py")
 
 if not Make.is_file():
     f = open(f"BOJ/{Number}.py", "w")
+    f.write(f"import sys\n")
     f.write(f"# PROBLEM - \n")
     f.write(f"# NUMBER - {Number}\n")
     f.write(f"# DATE - {str(datetime.today())[:16]}\n")
