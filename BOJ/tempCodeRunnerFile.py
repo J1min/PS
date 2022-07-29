@@ -1,33 +1,63 @@
-# PROBLEM - 최소 회의실 개수
-# NUMBER - 19598
-# DATE - 2022-07-28 21:11
-# IDEA - 그리디 문제입니다 아마 최대회의실 배정처럼
-# 이제 이어지는거끼리 이어주고 남는거끼리 남기고 이런식으로 갈듯
 import sys
-input = sys.stdin.readline
+# PROBLEM - 수 묶기
+# NUMBER - 1744
+# DATE - 2022-07-29 14:40
+# IDEA - 이것도 역시 그리디 입니다 허허
+# 제일 큰 수끼리 곱해주면 될듯 함
+# 근데 1은 안곱해주는게 더 크니까 조심!
+# 그리고 내 생각에 0은 카운팅을 해서
+# 음수들을 무력화시키는데 쓰면 좋을 것 같은데
 
-N = int(input().rstrip())
-time = list()
-room = []
+N = int(sys.stdin.readline().rstrip())
+numbers = [0] * N
+for i in range(N):
+    numbers[i] = int(sys.stdin.readline().rstrip())
+numbers.sort()
+result = []
+
+plus = []
+minus = []
+
+if N == 1:
+    print(numbers[0])
+    sys.exit()
+
+zero = 0
 
 for i in range(N):
-    time.append(list(map(int, input().split())))
-time.sort()
+    if numbers[i] > 1:
+        plus.append(numbers[i])
+    elif numbers[i] == 1:
+        result.append(1)
+    elif numbers[i] == 0:
+        zero += 1
+    else:
+        minus.append(numbers[i])
 
+# print(minus)
+# print(plus)
+
+minus.sort(reverse=True)
+if len(minus) >= 2:
+
+    while True:
+        if len(minus) < 2:
+            break
+        a, b = minus.pop(), minus.pop()
+        result.append(a*b)
+
+    # 마이너스끼리 다 곱해주고 나서 혹시나 0 있음 + 마이너스 한개 남아있음 인 경우에는 0*음수 해줌
+minus.sort()
+
+if zero != 0 and len(minus) == 1:
+    print(minus.pop())
 
 while True:
-    if len(time) == 0:
+    if len(plus) < 2:
         break
-    now = []
-    pop_list = []
-    now.append(time.pop(0))
-    for i in range(len(time)):
-        if now[0][1] <= time[i][0]:
-            now.append(time[i])
-            pop_list.append(i)
-    for i in pop_list:
-        time.pop(i)
-    room.append(now)
+    a, b = plus.pop(), plus.pop()
+    result.append(a*b)
 
 
-print(len(room))
+# print(plus, minus, result)
+print(sum(plus + minus + result))
