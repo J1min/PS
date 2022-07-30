@@ -9,15 +9,30 @@ import sys
 input = sys.stdin.readline
 N = int(input().rstrip())
 times = []
-gap = []
 
 for i in range(N):
-    times.append(list(map(int, input().split())))
+    time = list(map(int, input().split()))
+    # if time[1] - time[0] == 0:
+    #     count += 1
+    # else:
+    times.append(time)
 
-for i in range(N):
-    gap.append(times[i][1] - times[i][0])
-
-# times.sort()
-# gap.sort()
-print(times)
-print(gap)
+times.sort(key=lambda x: (x[1], x[0]))
+count = 0
+start = times[0][0]
+end = times[0][1]
+times.pop(0)
+while True:
+    # print(times)
+    if len(times) == 0:
+        break
+    for i in range(len(times)-1):
+        if times[i][0] == times[i][1]:
+            count += 1
+            break
+        if times[i+1][0] >= end:
+            start = times[i+1][0]
+            end = times[i+1][1]
+            count += 1
+    times.pop(0)
+print(count+1)

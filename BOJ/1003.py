@@ -1,3 +1,10 @@
+import sys
+# PROBLEM - 
+# TIER - G
+# NUMBER - 19598
+# DATE - 2022-07-29 22:29
+# IDEA - 
+
 def dp(N):
     global zeroCount
     result = []
