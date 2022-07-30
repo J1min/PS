@@ -12,7 +12,7 @@ queue = []
 time = []
 N = int(input().rstrip())
 for i in range(N):
-    no, start, end = map(int, input().split())
+    start, end = map(int, input().split())
     time.append([start, end])
 time.sort()
 heapq.heappush(queue, time[0][1]) # 일단 제일 처음 시작하는 강의는 힙에 넣고
