@@ -1,0 +1,8 @@
+N = input()
+print()
+print()
+print(f"BOJ/{N}.py")
+print(f"BOJ/{N}.py")
+print(f"BOJ/{N}.py")
+print()
+print()
