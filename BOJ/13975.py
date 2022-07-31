@@ -9,16 +9,18 @@ import sys
 
 import heapq
 input = sys.stdin.readline
-answer = []
-N = int(input().rstrip())
-numbers = [int(input().rstrip()) for _ in range(N)]
-heapq.heapify(numbers)
-while True:
-    if len(numbers) <= 1:
-        print(sum(answer))
-        break
-    min_ = heapq.heappop(numbers)
-    max_ = heapq.heappop(numbers)
-    result = min_ + max_
-    heapq.heappush(numbers, result)
-    answer.append(result)
+T = int(input().rstrip())
+for i in range(T):
+    answer = []
+    N = int(input().rstrip())
+    numbers = list(map(int, input().split()))
+    heapq.heapify(numbers)
+    while True:
+        if len(numbers) <= 1:
+            print(sum(answer))
+            break
+        min1 = heapq.heappop(numbers)
+        min2 = heapq.heappop(numbers)
+        result = min1 + min2
+        heapq.heappush(numbers, result)
+        answer.append(result)

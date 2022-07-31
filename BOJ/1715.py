@@ -5,6 +5,7 @@
 # IDEA - 그리디
 # 힙 관련 웰논 문제임ㅋㅋ east
 # 힙 써서 최소값(힙으로 쓰는 배열 제일 처음 값) 계속 pop 해가면서 재끼는 문제
+
 import sys
 input = sys.stdin.readline
 
@@ -17,8 +18,8 @@ while True:
     if len(numbers) <= 1:
         print(sum(answer))
         break
-    min_ = heapq.heappop(numbers)
-    max_ = heapq.heappop(numbers)
-    result = min_ + max_
+    min1 = heapq.heappop(numbers)
+    min2 = heapq.heappop(numbers)
+    result = min1 + min2
     heapq.heappush(numbers, result)
     answer.append(result)
